@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="">
+</head>
+<body>
+    <form action="" onsubmit = "return validate()">
+        <input id="email" type="email" name="emailaddress" placeholder="Enter your email">
+
+        <input type="submit" value="Send Email"> 
+        <div>
+            <label id="email-error" class="errorlabel"></label>
+        </div>
+    </form>
+    <!-- <script src = "./index.js"></script> -->
+
+    <script>
+        function validate() {
+
+            let email = document.getElementById("email");
+            //let errorLabel = document.getElementById("errorlabel");
+
+            let regEmail = /^([A-Za-z0-9\.-_]+)@([A-Za-z0-9]+)\.([a-z]{2,3})(\.[a-z]{2,3})?$/;
+            let valid = true;
+
+            if(email.value.trim()=="") {
+                // console.log("error");
+                message1="Email can not be blank";
+                document.getElementById("email-error").innerText = message1;
+                // setErrorMsg("email",message);
+                valid=false;
+            }
+            else if (!email.value.trim().match(regEmail)) {
+                message1="Email should be in correct format";
+                document.getElementById("email-error").innerText = message1;
+
+                valid=false;
+            }
+            if (valid) {
+                document.getElementById("email-error").style.display = "none";
+                document.getElementById("email-error").style.display = "none";
+            }
+            return valid;
+        }
+    </script>
+
+</body>
+</html>
